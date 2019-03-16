@@ -108,8 +108,10 @@ public class Console {
             System.out.print("Enter client card (empty to not change for update): ");
             int cardId = scanner.nextInt();
             System.out.print("Enter date (empty to not change for update): ");
+            scanner.nextLine();
             String date = scanner.nextLine();
             System.out.print("Enter time (empty to not change for update): ");
+            scanner.nextLine();
             String time = scanner.nextLine();
             System.out.println("Enter ticket price");
             double ticketPrice = scanner.nextDouble();
@@ -171,14 +173,19 @@ public class Console {
             System.out.print("Enter id: ");
             int id = scanner.nextInt();
             System.out.print("Enter last name (empty to not change for update): ");
+            scanner.nextLine();
             String name = scanner.nextLine();
             System.out.print("Enter first name (empty to not change for update): ");
+            scanner.nextLine();
             String firstName = scanner.nextLine();
             System.out.print("Enter CNP (empty to not change for update): ");
+            scanner.nextLine();
             String cnp = scanner.nextLine();
             System.out.print("Enter date of birth (empty to not change for update): ");
+            scanner.nextLine();
             String birthDate = scanner.nextLine();
             System.out.print("Enter date of registration (empty to not change for update): ");
+            scanner.nextLine();
             String registrationDate = scanner.nextLine();
 
             clientCardService.addOrUpdate(id, name, firstName, cnp, birthDate, registrationDate);
@@ -242,6 +249,7 @@ public class Console {
             System.out.print("Enter year: ");
             int year = scanner.nextInt();
             System.out.print("Enter title (empty to not change for update): ");
+            scanner.nextLine();
             String title = scanner.nextLine();
             System.out.print("Enter price (0 to not change for update): ");
             double price = Double.parseDouble(scanner.nextLine());
