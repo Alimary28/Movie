@@ -1,5 +1,7 @@
 package Domain;
 
+import java.util.Objects;
+
 public class Movie {
     private int id, year;
     private String title;
@@ -14,6 +16,22 @@ public class Movie {
         this.inCinema = inCinema;
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        if(this == obj){
+            return true;
+        }
+        if(obj == null || getClass() != obj.getClass()){
+            return false;
+        }
+        Movie movie = (Movie) obj;
+        return Objects.equals(id, movie.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, year, title, price);
+    }
 
     @Override
     public String toString() {

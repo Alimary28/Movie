@@ -1,7 +1,5 @@
 package Service;
-import Domain.Movie;
 import Domain.ClientCard;
-import Repository.MovieRepository;
 import Repository.ClientCardRepository;
 import java.util.List;
 
@@ -34,8 +32,8 @@ public class ClientCardService {
                 registrationDate = existing.getRegistrationDate();
             }
         }
-        ClientCard client = new ClientCard(id, name, firstName, cnp, birthDate, registrationDate);
-        repository.upsert(client);
+        ClientCard clientCard = new ClientCard(id, name, firstName, cnp, birthDate, registrationDate);
+        repository.upsert(clientCard);
     }
 
     public void remove(int id) {

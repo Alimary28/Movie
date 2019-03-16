@@ -24,11 +24,11 @@ public class ClientCardRepository {
 
     /**
      * Adds or updates a client if it already exists.
-     * @param client the client to add or update.
+     * @param clientCard the client to add or update.
      */
-    public void upsert(ClientCard client) {
-        validator.validate(client);
-        storage.put(client.getId(), client);
+    public void upsert(ClientCard clientCard) {
+        validator.validate(clientCard);
+        storage.put(clientCard.getId(), clientCard);
     }
 
     /**

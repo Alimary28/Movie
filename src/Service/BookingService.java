@@ -18,15 +18,15 @@ public class BookingService {
         this.movieRepository = movieRepository;
     }
 
-    public Booking addOrUpdate(int id, int movieId, int cardId, String date, String hour, double ticketPrice) {
+    public Booking addOrUpdate(int id, int movieId, int clientCardId, String date, String hour, double ticketPrice) {
         Booking existing = bookingRepository.findById(id);
         if (existing != null) {
             // keep unchanged fields as they were
             if (movieId == 0) {
                 movieId = existing.getMovieId();
             }
-            if (cardId == 0) {
-                cardId = existing.getCardId();
+            if (clientCardId == 0) {
+                clientCardId = existing.getCardId();
             }
             if (date.isEmpty()) {
                 date = existing.getDate();
@@ -45,11 +45,11 @@ public class BookingService {
         }
         double price = movieSold.getPrice();
         double ticketPoints = 0;
-        if (cardId != 0 && movieSold.isInCinema()) {
+        if (ticketPrice > 0 && movieSold.isInCinema()) {
             ticketPoints = 0.1; // 10% points from price of the ticket
         }
 
-        Booking booking = new Booking(id, movieId, cardId, date, hour, ticketPrice, (int)ticketPoints);
+        Booking booking = new Booking(id, movieId, clientCardId, date, hour, ticketPrice, (int)ticketPoints);
         bookingRepository.upsert(booking);
         return booking;
     }

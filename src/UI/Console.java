@@ -115,7 +115,7 @@ public class Console {
             double ticketPrice = scanner.nextDouble();
 
             Booking booking = bookingService.addOrUpdate(id, movieId, cardId, date, time, ticketPrice);
-            System.out.println(String.format("Added transaction id=%s, ticket price=%f, points=%f%%", booking.getId()));
+            System.out.println(String.format("Added booking id=%s, ticket price=%f, points=%s%%", booking.getId(), booking.getTicketPrice(), booking.getPoints()));
         } catch (Exception ex) {
             System.out.println("Errors:\n" + ex.getMessage());
         }

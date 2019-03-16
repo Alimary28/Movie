@@ -1,5 +1,7 @@
 package Domain;
 
+import java.util.Objects;
+
 public class Booking {
     private int id, movieId, cardId, points;
     private String date, hour;
@@ -29,6 +31,19 @@ public class Booking {
                 ", ticketPrice='" + ticketPrice + '\'' +
                 ", points='" + points + '\'' +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Booking booking = (Booking) o;
+        return id == booking.id;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, movieId, cardId, date, hour, ticketPrice, points);
     }
 
     public int getId() {

@@ -36,7 +36,7 @@ public class MovieRepository {
      */
     public void remove(int id) {
         if (!program.containsKey(id)) {
-            throw new RuntimeException("There is no cake with the given id to remove.");
+            throw new RuntimeException("There is no movie with the given id to remove.");
         }
 
         program.remove(id);
