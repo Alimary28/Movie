@@ -44,12 +44,12 @@ public class BookingService {
             throw new RuntimeException("There is no movie with the given id!");
         }
         double price = movieSold.getPrice();
-        double ticketPoints = 0;
+        double ticketPoints = 0.0;
         if (ticketPrice > 0 && movieSold.isInCinema()) {
             ticketPoints = 0.1; // 10% points from price of the ticket
         }
 
-        Booking booking = new Booking(id, movieId, clientCardId, date, hour, ticketPrice, (int)ticketPoints);
+        Booking booking = new Booking(id, movieId, clientCardId, date, hour, price, (int)ticketPoints);
         bookingRepository.upsert(booking);
         return booking;
     }

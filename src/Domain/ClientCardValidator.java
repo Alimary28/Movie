@@ -5,8 +5,9 @@ import java.util.zip.DataFormatException;
 
 
 public class ClientCardValidator {
-    SimpleDateFormat format = new SimpleDateFormat("dd.MM.yyyy");
+
     public void validate(ClientCard client){
+        SimpleDateFormat format = new SimpleDateFormat("dd.MM.yyyy");
         if(client.getCnp().length() < 13 || client.getCnp().length() > 13){
             throw new RuntimeException("CNP is not valid!");
         }
@@ -15,7 +16,6 @@ public class ClientCardValidator {
         } catch (ParseException pe) {
             throw new RuntimeException("The date of birth is not in a correct format!");
         }
-
         try {
             format.parse(client.getRegistrationDate());
         } catch (ParseException pe) {
